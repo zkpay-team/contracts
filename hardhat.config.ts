@@ -44,8 +44,8 @@ function getChainConfig(chain: Network): NetworkUserConfig {
     },
     chainId: chain,
     url: jsonRpcUrl,
-    gasPrice: 300000000000,
-    gasMultiplier: 2,
+    // gasPrice: 300000000000,
+    // gasMultiplier: 2,
   }
 }
 
@@ -59,7 +59,18 @@ const config: HardhatUserConfig = {
       avalancheFujiTestnet: process.env.SNOWTRACE_API_KEY || '',
       polygon: process.env.POLYGONSCAN_API_KEY || '',
       polygonMumbai: process.env.POLYGONSCAN_API_KEY || '',
+      scrollAlpha: 'abc',
     },
+    customChains: [
+      {
+        network: 'scrollAlpha',
+        chainId: 534353,
+        urls: {
+          apiURL: 'https://blockscout.scroll.io/api',
+          browserURL: 'https://blockscout.scroll.io/',
+        },
+      },
+    ],
   },
   gasReporter: {
     currency: 'USD',
